@@ -9,6 +9,10 @@ customer_bp = Blueprint('customer_bp', __name__)
 
 @customer_bp.route('/get_customers', methods=['GET'])
 def get_customers():
+    """
+    This API retreives all the customers and return it.
+    It does not recieve any parameter.
+    """
     # customers = Customer.query.all()
     q = db.session.query(Customer)
     results = q.all()
@@ -17,6 +21,10 @@ def get_customers():
 
 @customer_bp.route('/get_customers', methods=['POST'])
 def get_customer():
+    """
+    This API retreives the specific customer with given ID and return it.
+    It recieves Customer ID(required) as parameter in json format.
+    """
     data = request.json
     id = data['id']
     if not id:
@@ -32,6 +40,10 @@ def get_customer():
 
 @customer_bp.route('/create_customers', methods=['POST'])
 def create_customer():
+    """
+    This API creates a new customer.
+    It recieves Customer Name(required), Contact Info(required) and Notes(optional) as parameters in json format.
+    """
     data = request.json
     if not data['name']:
         return {"msg": f"Must provide valid name."}, 400
@@ -54,6 +66,10 @@ def create_customer():
 
 @customer_bp.route('/update_customers', methods=['POST'])
 def update_customer():
+    """
+    This API upsates an existing customer of given ID.
+    It recieves Customer ID(required), Customer Name(optional), Contact Info(optional) and Notes(optional) as parameters in json format.
+    """
     data = request.json
     id = data['id']
     if not id:
@@ -82,6 +98,10 @@ def update_customer():
 
 @customer_bp.route('/delete_customers', methods=['DELETE'])
 def delete_customer():
+    """
+    This API deletes an existing customer.
+    It recieves Customer ID(required) as parameters in json format.
+    """
     data = request.json
     id = data['id']
     if not id:
