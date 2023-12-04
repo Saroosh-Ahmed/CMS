@@ -1,0 +1,29 @@
+# Customer Management System (CMS)
+
+It is a web-based application to manage customer records.The application 
+facilitates the addition, viewing, updating, and deletion of customer details.
+
+## Configuration
+For backend run these commands in your terminal:
+1. python -m venv venv (Create virtual environment for your project)
+2. .\venv\Scripts\activate (To activate virtual environment)
+3. pip install Flask Flask-SQLAlchemy psycopg2-binary pytest pytest-flask (Install requirements)
+4. py run.py (To run backend project)
+5. pytest tests (To run pytest for unit testing)
+
+
+## Project Struture:
+/CMS
+  /backend
+    /app
+      __init__.py
+      models.py
+      routes.py
+    /tests
+      __init__.py
+      test_all.py
+    config.py
+    run.py
+  /venv
+
+
