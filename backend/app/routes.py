@@ -13,7 +13,6 @@ def get_customers():
     This API retreives all the customers and return it.
     It does not recieve any parameter.
     """
-    # customers = Customer.query.all()
     q = db.session.query(Customer)
     results = q.all()
     customers = [{"id":r.id,"name":r.name,"contact_info":r.contact_info,"notes":r.notes} for r in results]

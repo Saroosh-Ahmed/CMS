@@ -27,3 +27,30 @@ For backend run these commands in your terminal:
   /venv
 
 
+Frontend
+## Configuration
+For frontend run these commands in your terminal:
+1. npm install (To install all dependencies)
+2. npm start (To start frontend project)
+
+## Project Structure:
+/cms
+ /src
+  /Components
+   /AddCustomer.jsx
+   /CustomerListing.jsx
+   /DeleteModal.jsx
+   /EditModal.jsx
+   /ViewCustomer.jsx
+ /App.css
+ /App.js
+ /package.json
+
+1. Add Customer: To add customer record.
+2. Customer Listing: To list all customer.
+3. Delete Customer: To delete customer.
+4. Edit Customer: To edit customer.
+5. View Customer: To view single customer.
+6. Bootstrap is used for designing.
+7. react-toastify is used to notify user for their specific functionality response.
+8. Component based architecture is used for development.
