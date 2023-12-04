@@ -1,5 +1,4 @@
 from flask import Blueprint, request
-import pandas as pd
 import re
 from .models import db, Customer
 
@@ -14,7 +13,7 @@ def get_customers():
     q = db.session.query(Customer)
     results = q.all()
     customers = [{"id":r.id,"name":r.name,"contact_info":r.contact_info,"notes":r.notes} for r in results]
-    return customers
+    return customers, 200
 
 @customer_bp.route('/get_customers', methods=['POST'])
 def get_customer():
@@ -27,9 +26,9 @@ def get_customer():
     q = db.session.query(Customer).filter(Customer.id == id)
     result = q.first()
     if not result:
-        return {"msg": f"No customer found."}
+        return {"msg": f"No customer found."}, 400
     customers = {"id":result.id,"name":result.name,"contact_info":result.contact_info,"notes":result.notes}
-    return customers
+    return customers, 200
 
 @customer_bp.route('/create_customers', methods=['POST'])
 def create_customer():
@@ -51,7 +50,7 @@ def create_customer():
     new_customer = Customer(**data)
     db.session.add(new_customer)
     db.session.commit()
-    return {"msg": f"{new_customer.name} has been added as new customer."}, 201
+    return {"msg": f"{new_customer.name} has been added as new customer."}, 200
 
 @customer_bp.route('/update_customers', methods=['POST'])
 def update_customer():
@@ -73,7 +72,7 @@ def update_customer():
     q = db.session.query(Customer).filter(Customer.id == id)
     customer = q.first()
     if not customer:
-        return {"msg": f"No customer found."}
+        return {"msg": f"No customer found."}, 400
     print(customer)
     for key, value in data.items():
         if value:
@@ -92,7 +91,7 @@ def delete_customer():
     q = db.session.query(Customer).filter(Customer.id == id)
     customer = q.first()
     if not customer:
-        return {"msg": f"No customer found."}
+        return {"msg": f"No customer found."}, 400
     db.session.delete(customer)
     db.session.commit()
     return {'msg': 'Customer deleted successfully.'}, 200
