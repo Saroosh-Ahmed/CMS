@@ -1,6 +1,6 @@
 # Customer Management System (CMS)
 
-It is a web-based application to manage customer records.The application 
+It is a web-based application to manage customer records. The application 
 facilitates the addition, viewing, updating, and deletion of customer details.
 
 ## Configuration
@@ -12,7 +12,7 @@ For backend run these commands in your terminal:
 5. pytest tests (To run pytest for unit testing)
 
 
-## Project Struture:
+## Project Structure:
 /CMS
   /backend
     /app
@@ -47,7 +47,7 @@ For frontend run these commands in your terminal:
  /package.json
 
 1. Add Customer: To add customer record.
-2. Customer Listing: To list all customer.
+2. Customer Listing: To list all customers.
 3. Delete Customer: To delete customer.
 4. Edit Customer: To edit customer.
 5. View Customer: To view single customer.
